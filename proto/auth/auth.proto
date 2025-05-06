@@ -2,9 +2,7 @@ syntax = "proto3";
 
 package auth;
 
-
 option go_package = "auth/gen/go/auth;auth";
-
 service Auth{
     rpc Register(RegisterRequest) returns (RegisterResponse);
     rpc Login(LoginRequest) returns (LoginResponse);
@@ -21,6 +19,7 @@ message RegisterRequest{
     bool gender = 4;
     string country = 5;
     int32 age = 6;
+    string role = 7;
 }
 
 message RegisterResponse{

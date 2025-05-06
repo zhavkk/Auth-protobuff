@@ -29,6 +29,7 @@ type RegisterRequest struct {
 	Gender        bool                   `protobuf:"varint,4,opt,name=gender,proto3" json:"gender,omitempty"`
 	Country       string                 `protobuf:"bytes,5,opt,name=country,proto3" json:"country,omitempty"`
 	Age           int32                  `protobuf:"varint,6,opt,name=age,proto3" json:"age,omitempty"`
+	Role          string                 `protobuf:"bytes,7,opt,name=role,proto3" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,6 +104,13 @@ func (x *RegisterRequest) GetAge() int32 {
 		return x.Age
 	}
 	return 0
+}
+
+func (x *RegisterRequest) GetRole() string {
+	if x != nil {
+		return x.Role
+	}
+	return ""
 }
 
 type RegisterResponse struct {
@@ -785,14 +793,15 @@ var File_auth_auth_proto protoreflect.FileDescriptor
 
 const file_auth_auth_proto_rawDesc = "" +
 	"\n" +
-	"\x0fauth/auth.proto\x12\x04auth\"\xa3\x01\n" +
+	"\x0fauth/auth.proto\x12\x04auth\"\xb7\x01\n" +
 	"\x0fRegisterRequest\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12\x16\n" +
 	"\x06gender\x18\x04 \x01(\bR\x06gender\x12\x18\n" +
 	"\acountry\x18\x05 \x01(\tR\acountry\x12\x10\n" +
-	"\x03age\x18\x06 \x01(\x05R\x03age\"\"\n" +
+	"\x03age\x18\x06 \x01(\x05R\x03age\x12\x12\n" +
+	"\x04role\x18\a \x01(\tR\x04role\"\"\n" +
 	"\x10RegisterResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\"@\n" +
 	"\fLoginRequest\x12\x14\n" +
